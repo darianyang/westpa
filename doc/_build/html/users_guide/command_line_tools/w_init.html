@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>w_init &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="w_kinavg" href="w_kinavg.html" />
+    <link rel="prev" title="w_fork" href="w_fork.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../westext.html"> WEST extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command_line_tools.html"> Command line tool index</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="w_assign.html"> w_assign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_bins.html"> w_bins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_crawl.html"> w_crawl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_eddist.html"> w_eddist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fluxanl.html"> w_fluxanl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fork.html"> w_fork</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"> w_init</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-options">Command-Line Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#state-options">State Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinavg.html"> w_kinavg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinetics.html"> w_kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_ntop.html"> w_ntop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_pdist.html"> w_pdist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_run.html"> w_run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_select.html"> w_select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_stateprobs.html"> w_stateprobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_states.html"> w_states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_succ.html"> w_succ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_trace.html"> w_trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_truncate.html"> w_truncate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ploterr.html"> ploterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plothist.html"> plothist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../command_line_tools.html">Command Line Tool Index</a> &raquo;</li>
+        
+      <li>w_init</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/users_guide/command_line_tools/w_init.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="w-init">
+<span id="id1"></span><h1>w_init<a class="headerlink" href="#w-init" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">w_init</span></code> initializes the weighted ensemble simulation, creates the
+main HDF5 file and prepares the first iteration.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$WEST_ROOT/bin/w_init [-h] [-r RCFILE] [--quiet | --verbose | --debug] [--version]
+             [--force] [--bstate-file BSTATE_FILE] [--bstate BSTATES]
+             [--tstate-file TSTATE_FILE] [--tstate TSTATES]
+             [--segs-per-state N] [--no-we] [--wm-work-manager WORK_MANAGER]
+             [--wm-n-workers N_WORKERS] [--wm-zmq-mode MODE]
+             [--wm-zmq-info INFO_FILE] [--wm-zmq-task-endpoint TASK_ENDPOINT]
+             [--wm-zmq-result-endpoint RESULT_ENDPOINT]
+             [--wm-zmq-announce-endpoint ANNOUNCE_ENDPOINT]
+             [--wm-zmq-heartbeat-interval INTERVAL]
+             [--wm-zmq-task-timeout TIMEOUT] [--wm-zmq-client-comm-mode MODE]
+</pre></div>
+</div>
+<p>Initialize a new WEST simulation, creating the WEST HDF5 file and preparing the
+first iteration’s segments. Initial states are generated from one or more
+“basis states” which are specified either in a file specified with
+<code class="docutils literal notranslate"><span class="pre">--bstates-from</span></code>, or by one or more <code class="docutils literal notranslate"><span class="pre">--bstate</span></code> arguments. If neither
+<code class="docutils literal notranslate"><span class="pre">--bstates-from</span></code> nor at least one <code class="docutils literal notranslate"><span class="pre">--bstate</span></code> argument is provided, then a
+default basis state of probability one identified by the state ID zero and
+label “basis” will be created (a warning will be printed in this case, to
+remind you of this behavior, in case it is not what you wanted). Target states
+for (non- equilibrium) steady-state simulations are specified either in a file
+specified with <code class="docutils literal notranslate"><span class="pre">--tstates-from</span></code>, or by one or more <code class="docutils literal notranslate"><span class="pre">--tstate</span></code> arguments. If
+neither <code class="docutils literal notranslate"><span class="pre">--tstates-from</span></code> nor at least one <code class="docutils literal notranslate"><span class="pre">--tstate</span></code> argument is provided,
+then an equilibrium simulation (without any sinks) will be performed.</p>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command-Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference external" href="UserGuide:ToolRefs">general command-line tool reference</a> for more
+information on the general options.</p>
+<div class="section" id="state-options">
+<h3>State Options<a class="headerlink" href="#state-options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">force</span>
+  <span class="n">Overwrites</span> <span class="nb">any</span> <span class="n">existing</span> <span class="n">simulation</span> <span class="n">data</span>
+
+<span class="o">--</span><span class="n">bstate</span> <span class="n">BSTATES</span>
+  <span class="n">Add</span> <span class="n">the</span> <span class="n">given</span> <span class="n">basis</span> <span class="n">state</span> <span class="p">(</span><span class="n">specified</span> <span class="k">as</span> <span class="n">a</span> <span class="n">string</span>
+  <span class="s1">&#39;label,probability[,auxref]&#39;</span><span class="p">)</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">basis</span> <span class="n">states</span> <span class="p">(</span><span class="n">after</span>
+  <span class="n">those</span> <span class="n">specified</span> <span class="ow">in</span> <span class="o">--</span><span class="n">bstates</span><span class="o">-</span><span class="n">from</span><span class="p">,</span> <span class="k">if</span> <span class="nb">any</span><span class="p">)</span><span class="o">.</span> <span class="n">This</span> <span class="n">argument</span> <span class="n">may</span> <span class="n">be</span>
+  <span class="n">specified</span> <span class="n">more</span> <span class="n">than</span> <span class="n">once</span><span class="p">,</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">case</span> <span class="n">the</span> <span class="n">given</span> <span class="n">states</span> <span class="n">are</span>
+  <span class="n">appended</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">order</span> <span class="n">they</span> <span class="n">are</span> <span class="n">given</span> <span class="n">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span><span class="o">.</span>
+
+<span class="o">--</span><span class="n">bstate</span><span class="o">-</span><span class="n">file</span> <span class="n">BSTATE_FILE</span><span class="p">,</span> <span class="o">--</span><span class="n">bstates</span><span class="o">-</span><span class="kn">from</span> <span class="nn">BSTATE_FILE</span>
+  <span class="n">Read</span> <span class="n">basis</span> <span class="n">state</span> <span class="n">names</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">,</span> <span class="ow">and</span> <span class="p">(</span><span class="n">optionally</span><span class="p">)</span> <span class="n">data</span>
+  <span class="n">references</span> <span class="kn">from</span> <span class="nn">BSTATE_FILE.</span>
+
+<span class="o">--</span><span class="n">tstate</span> <span class="n">TSTATES</span>
+  <span class="n">Add</span> <span class="n">the</span> <span class="n">given</span> <span class="n">target</span> <span class="n">state</span> <span class="p">(</span><span class="n">specified</span> <span class="k">as</span> <span class="n">a</span> <span class="n">string</span>
+  <span class="s1">&#39;label,pcoord0[,pcoord1[,...]]&#39;</span><span class="p">)</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">target</span> <span class="n">states</span> <span class="p">(</span><span class="n">after</span>
+  <span class="n">those</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">given</span> <span class="n">by</span> <span class="o">--</span><span class="n">tstates</span><span class="o">-</span><span class="n">from</span><span class="p">,</span> <span class="k">if</span> <span class="nb">any</span><span class="p">)</span><span class="o">.</span> <span class="n">This</span>
+  <span class="n">argument</span> <span class="n">may</span> <span class="n">be</span> <span class="n">specified</span> <span class="n">more</span> <span class="n">than</span> <span class="n">once</span><span class="p">,</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">case</span> <span class="n">the</span> <span class="n">given</span>
+  <span class="n">states</span> <span class="n">are</span> <span class="n">appended</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">order</span> <span class="n">they</span> <span class="n">appear</span> <span class="n">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span><span class="o">.</span>
+
+<span class="o">--</span><span class="n">tstate</span><span class="o">-</span><span class="n">file</span> <span class="n">TSTATE_FILE</span><span class="p">,</span> <span class="o">--</span><span class="n">tstates</span><span class="o">-</span><span class="kn">from</span> <span class="nn">TSTATE_FILE</span>
+  <span class="n">Read</span> <span class="n">target</span> <span class="n">state</span> <span class="n">names</span> <span class="ow">and</span> <span class="n">representative</span> <span class="n">progress</span> <span class="n">coordinates</span> <span class="kn">from</span>
+  <span class="nn">TSTATE_FILE.</span>
+
+<span class="o">--</span><span class="n">segs</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">state</span> <span class="n">N</span>
+  <span class="n">Initialize</span> <span class="n">N</span> <span class="n">segments</span> <span class="kn">from</span> <span class="nn">each</span> <span class="n">basis</span> <span class="n">state</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span>
+
+<span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">we</span><span class="p">,</span> <span class="o">--</span><span class="n">shotgun</span>
+  <span class="n">Do</span> <span class="ow">not</span> <span class="n">run</span> <span class="n">the</span> <span class="n">weighted</span> <span class="n">ensemble</span> <span class="nb">bin</span><span class="o">/</span><span class="n">split</span><span class="o">/</span><span class="n">merge</span> <span class="n">algorithm</span> <span class="n">on</span>
+  <span class="n">newly</span><span class="o">-</span><span class="n">created</span> <span class="n">segments</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>(TODO: write 3 examples; Setting up the basis states, explanation of
+bstates and istates. Setting up an equilibrium simulation, w/o target(s)
+for recycling. Setting up a simulation with one/multiple target states.)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="w_kinavg.html" class="btn btn-neutral float-right" title="w_kinavg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="w_fork.html" class="btn btn-neutral float-left" title="w_fork" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

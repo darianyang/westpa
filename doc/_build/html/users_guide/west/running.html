@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Analysis" href="analysis.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../west.html"> WEST</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html"> Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"> Running</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-simulation-limits">Setting simulation limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-simulation">Running a simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-on-a-single-node">Running on a single node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-on-multiple-nodes-with-mpi">Running on multiple nodes with MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-on-multiple-nodes-with-zeromq">Running on multiple nodes with ZeroMQ</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-data">Managing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recovering-from-errors">Recovering from errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html"> Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../westext.html"> WEST extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_tools.html"> Command line tool index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../west.html">WEST</a> &raquo;</li>
+        
+      <li>Running</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/users_guide/west/running.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running">
+<span id="id1"></span><h1>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>w_run</strong> command is used to run weighted ensemble simulations
+<cite>configured &lt;setup&gt;</cite> with <strong>w_init</strong>.</p>
+</div>
+<div class="section" id="setting-simulation-limits">
+<h2>Setting simulation limits<a class="headerlink" href="#setting-simulation-limits" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="running-a-simulation">
+<h2>Running a simulation<a class="headerlink" href="#running-a-simulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="running-on-a-single-node">
+<h3>Running on a single node<a class="headerlink" href="#running-on-a-single-node" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="running-on-multiple-nodes-with-mpi">
+<h3>Running on multiple nodes with MPI<a class="headerlink" href="#running-on-multiple-nodes-with-mpi" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="running-on-multiple-nodes-with-zeromq">
+<h3>Running on multiple nodes with ZeroMQ<a class="headerlink" href="#running-on-multiple-nodes-with-zeromq" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="managing-data">
+<h2>Managing data<a class="headerlink" href="#managing-data" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="recovering-from-errors">
+<h2>Recovering from errors<a class="headerlink" href="#recovering-from-errors" title="Permalink to this headline">¶</a></h2>
+<p>By default, information about simulation progress is stored in
+<strong>west-JOBID.log</strong> (where JOBID refers to the job ID given by the submission
+engine); any errors will be logged here.</p>
+<ul class="simple">
+<li><p>The error “could not read pcoord from ‘tempfile’: progress coordinate has
+incorrect shape” may come about from multiple causes; it is possible that the
+progress coordinate length is incorrectly specified in system.py
+(<strong>self.pcoord_len</strong>), or that GROMACS (or whatever simulation package you
+are using) had an error during the simulation.</p></li>
+<li><p>The first case will be obvious by what comes after the message: (XX, YY)
+(where XX is non-zero), expected (ZZ, GG) (whatever is in system.py). This
+can be corrected by adjusting system.py.</p></li>
+<li><p>In the second case, the progress coordinate length is 0; this
+indicates that no progress coordinate data exists (null string), which
+implies that the simulation software did not complete successfully. By
+default, the simulation package (GROMACS or otherwise) terminal output is
+stored in a log file inside of seg_logs. Any error that occurred during the
+actual simulation will be logged here, and can be corrected as needed.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="analysis.html" class="btn btn-neutral float-right" title="Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>w_assign &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="w_bins" href="w_bins.html" />
+    <link rel="prev" title="Command Line Tool Index" href="../command_line_tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../westext.html"> WEST extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command_line_tools.html"> Command line tool index</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"> w_assign</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-options">Command-Line Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-output-options">Input/output Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binning-options">Binning Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macrostate-options">Macrostate Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-progress-coordinate">Specifying Progress Coordinate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="w_bins.html"> w_bins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_crawl.html"> w_crawl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_eddist.html"> w_eddist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fluxanl.html"> w_fluxanl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fork.html"> w_fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_init.html"> w_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinavg.html"> w_kinavg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinetics.html"> w_kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_ntop.html"> w_ntop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_pdist.html"> w_pdist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_run.html"> w_run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_select.html"> w_select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_stateprobs.html"> w_stateprobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_states.html"> w_states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_succ.html"> w_succ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_trace.html"> w_trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_truncate.html"> w_truncate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ploterr.html"> ploterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plothist.html"> plothist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../command_line_tools.html">Command Line Tool Index</a> &raquo;</li>
+        
+      <li>w_assign</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/users_guide/command_line_tools/w_assign.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="w-assign">
+<span id="id1"></span><h1>w_assign<a class="headerlink" href="#w-assign" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">w_assign</span></code> uses simulation output to assign walkers to user-specified bins
+and macrostates. These assignments are required for some other simulation
+tools, namely <code class="docutils literal notranslate"><span class="pre">w_kinetics</span></code> and <code class="docutils literal notranslate"><span class="pre">w_kinavg</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">w_assign</span></code> supports parallelization (see <a class="reference external" href="UserGuide:ToolRefs#Work_Manager_Options">general work manager options</a> for more on command line options
+to specify a work manager).</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w_assign</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">RCFILE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">quiet</span> <span class="o">|</span> <span class="o">--</span><span class="n">verbose</span> <span class="o">|</span> <span class="o">--</span><span class="n">debug</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">version</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">-</span><span class="n">W</span> <span class="n">WEST_H5FILE</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">OUTPUT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">bins</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">system</span> <span class="o">|</span> <span class="o">--</span><span class="n">bins</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">expr</span> <span class="n">BINS_FROM_EXPR</span> <span class="o">|</span> <span class="o">--</span><span class="n">bins</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">function</span> <span class="n">BINS_FROM_FUNCTION</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">MODULE</span><span class="o">.</span><span class="n">FUNCTION</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">states</span> <span class="n">STATEDEF</span> <span class="p">[</span><span class="n">STATEDEF</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="o">--</span><span class="n">states</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">file</span> <span class="n">STATEFILE</span> <span class="o">|</span> <span class="o">--</span><span class="n">states</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">function</span> <span class="n">STATEFUNC</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">work</span><span class="o">-</span><span class="n">manager</span> <span class="n">WORK_MANAGER</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">n</span><span class="o">-</span><span class="n">workers</span> <span class="n">N_WORKERS</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">mode</span> <span class="n">MODE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">info</span> <span class="n">INFO_FILE</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">task</span><span class="o">-</span><span class="n">endpoint</span> <span class="n">TASK_ENDPOINT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">endpoint</span> <span class="n">RESULT_ENDPOINT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">announce</span><span class="o">-</span><span class="n">endpoint</span> <span class="n">ANNOUNCE_ENDPOINT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">listen</span><span class="o">-</span><span class="n">endpoint</span> <span class="n">ANNOUNCE_ENDPOINT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">heartbeat</span><span class="o">-</span><span class="n">interval</span> <span class="n">INTERVAL</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">task</span><span class="o">-</span><span class="n">timeout</span> <span class="n">TIMEOUT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">wm</span><span class="o">-</span><span class="n">zmq</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">comm</span><span class="o">-</span><span class="n">mode</span> <span class="n">MODE</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command-Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference external" href="UserGuide:ToolRefs">general command-line tool reference</a> for
+more information on the general options.</p>
+</div>
+<div class="section" id="input-output-options">
+<h2>Input/output Options<a class="headerlink" href="#input-output-options" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">W</span><span class="p">,</span> <span class="o">--</span><span class="n">west</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+
+    <span class="n">Read</span> <span class="n">simulation</span> <span class="n">result</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">file</span> <span class="o">*</span><span class="n">file</span><span class="o">*.</span> <span class="p">(</span><span class="o">**</span><span class="n">Default</span><span class="p">:</span><span class="o">**</span> <span class="n">The</span>
+    <span class="o">*</span><span class="n">hdf5</span><span class="o">*</span> <span class="n">file</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">file</span><span class="p">,</span> <span class="n">by</span> <span class="n">default</span>
+    <span class="o">**</span><span class="n">west</span><span class="o">.</span><span class="n">h5</span><span class="o">**</span><span class="p">)</span>
+
+<span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="o">--</span><span class="n">output</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span>
+    <span class="n">Write</span> <span class="n">assignment</span> <span class="n">results</span> <span class="n">to</span> <span class="n">file</span> <span class="o">*</span><span class="n">outfile</span><span class="o">*.</span> <span class="p">(</span><span class="o">**</span><span class="n">Default</span><span class="p">:</span><span class="o">**</span> <span class="o">*</span><span class="n">hdf5</span><span class="o">*</span>
+    <span class="n">file</span> <span class="o">**</span><span class="n">assign</span><span class="o">.</span><span class="n">h5</span><span class="o">**</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="binning-options">
+<h2>Binning Options<a class="headerlink" href="#binning-options" title="Permalink to this headline">¶</a></h2>
+<p>Specify how binning is to be assigned to the dataset.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--bins-from-system
+  Use binning scheme specified by the system driver; system driver can be
+  found in the west configuration file, by default named **west.cfg**
+  (**Default binning**)
+
+--bins-from-expr bin_expr
+  Use binning scheme specified in *``bin_expr``*, which takes the form a
+  Python list of lists, where each inner list corresponds to the binning a
+  given dimension. (for example, &quot;[[0,1,2,4,inf],[-inf,0,inf]]&quot; specifies bin
+  boundaries for two dimensional progress coordinate. Note that this option
+  accepts the special symbol &#39;inf&#39; for floating point infinity
+
+--bins-from-function bin_func
+  Bins specified by calling an external function *``bin_func``*.
+  *``bin_func``* should be formatted as &#39;[PATH:]module.function&#39;, where the
+  function &#39;function&#39; in module &#39;module&#39; will be used
+</pre></div>
+</div>
+</div>
+<div class="section" id="macrostate-options">
+<h2>Macrostate Options<a class="headerlink" href="#macrostate-options" title="Permalink to this headline">¶</a></h2>
+<p>You can optionally specify how to assign user-defined macrostates. Note
+that macrostates must be assigned for subsequent analysis tools, namely
+<code class="docutils literal notranslate"><span class="pre">w_kinetics</span></code> and <code class="docutils literal notranslate"><span class="pre">w_kinavg</span></code>.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--states statedef [statedef ...]
+  Specify a macrostate for a single bin as *``statedef``*, formatted
+  as a coordinate tuple where each coordinate specifies the bin to
+  which it belongs, for instance:
+  &#39;[1.0, 2.0]&#39; assigns a macrostate corresponding to the bin that
+  contains the (two-dimensional) progress coordinates 1.0 and 2.0.
+  Note that a macrostate label can optionally by specified, for
+  instance: &#39;bound:[1.0, 2.0]&#39; assigns the corresponding bin
+  containing the given coordinates the macrostate named &#39;bound&#39;. Note
+  that multiple assignments can be specified with this command, but
+  only one macrostate per bin is possible - if you wish to specify
+  multiple bins in a single macrostate, use the
+  *``--states-from-file``* option.
+
+--states-from-file statefile
+  Read macrostate assignments from *yaml* file *``statefile``*. This
+  option allows you to assign multiple bins to a single macrostate.
+  The following example shows the contents of *``statefile``* that
+  specify two macrostates, bound and unbound, over multiple bins with
+  a two-dimensional progress coordinate:
+
+---
+states:
+  - label: unbound
+    coords:
+      - [9.0, 1.0]
+      - [9.0, 2.0]
+  - label: bound
+    coords:
+      - [0.1, 0.0]
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-progress-coordinate">
+<h2>Specifying Progress Coordinate<a class="headerlink" href="#specifying-progress-coordinate" title="Permalink to this headline">¶</a></h2>
+<p>By default, progress coordinate information for each iteration is taken from
+<em>pcoord</em> dataset in the specified input file (which, by default is <em>west.h5</em>).
+Optionally, you can specify a function to construct the progress coordinate for
+each iteration - this may be useful to consolidate data from several sources or
+otherwise preprocess the progress coordinate data.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">construct</span><span class="o">-</span><span class="n">pcoord</span> <span class="n">module</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="o">-</span><span class="n">p</span> <span class="n">module</span><span class="o">.</span><span class="n">function</span>
+  <span class="n">Use</span> <span class="n">the</span> <span class="n">function</span> <span class="o">*</span><span class="n">module</span><span class="o">.</span><span class="n">function</span><span class="o">*</span> <span class="n">to</span> <span class="n">construct</span> <span class="n">the</span> <span class="n">progress</span>
+  <span class="n">coordinate</span> <span class="k">for</span> <span class="n">each</span> <span class="n">iteration</span><span class="o">.</span> <span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="n">once</span> <span class="n">per</span>
+  <span class="n">iteration</span> <span class="k">as</span> <span class="o">*</span><span class="n">function</span><span class="p">(</span><span class="n">n_iter</span><span class="p">,</span> <span class="n">iter_group</span><span class="p">)</span><span class="o">*</span> <span class="ow">and</span> <span class="n">should</span> <span class="k">return</span> <span class="n">an</span>
+  <span class="n">array</span> <span class="n">indexable</span> <span class="k">as</span> <span class="p">[</span><span class="n">seg_id</span><span class="p">][</span><span class="n">timepoint</span><span class="p">][</span><span class="n">dimension</span><span class="p">]</span><span class="o">.</span> <span class="n">The</span>
+  <span class="o">**</span><span class="n">default</span><span class="o">**</span> <span class="n">function</span> <span class="n">returns</span> <span class="n">the</span> <span class="s1">&#39;pcoord&#39;</span> <span class="n">dataset</span> <span class="k">for</span> <span class="n">that</span> <span class="n">iteration</span>
+  <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">the</span> <span class="n">function</span> <span class="n">executes</span> <span class="k">return</span> <span class="n">iter_group</span><span class="p">[</span><span class="s1">&#39;pcoord&#39;</span><span class="p">][</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="w_bins.html" class="btn btn-neutral float-right" title="w_bins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../command_line_tools.html" class="btn btn-neutral float-left" title="Command Line Tool Index" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

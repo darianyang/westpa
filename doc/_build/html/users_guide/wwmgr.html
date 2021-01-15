@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WEST Work Manager &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WEST Extensions" href="westext.html" />
+    <link rel="prev" title="WEST Tools" href="west_tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> WEST work manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-controlling-task-distribution">For controlling task distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-passing-information-to-workers">For passing information to workers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-zeromq-work-manager-for-clusters">The ZeroMQ work manager for clusters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="westext.html"> WEST extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_tools.html"> Command line tool index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>WEST Work Manager</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/users_guide/wwmgr.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="west-work-manager">
+<span id="wwmgr"></span><h1>WEST Work Manager<a class="headerlink" href="#west-work-manager" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>WWMGR is the parallel task distribution framework originally included as part
+of the WEMD source. It was extracted to permit independent development, and
+(more importantly) independent testing. A number of different schemes can be
+selected at run-time for distributing work across multiple cores/nodes, as
+follows:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Implementation</p></th>
+<th class="head"><p>Multi-Core</p></th>
+<th class="head"><p>Multi-Node</p></th>
+<th class="head"><p>Appropriate For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>serial</p></td>
+<td><p>None</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Testing, minimizing overhead
+when dynamics is inexpensive</p></td>
+</tr>
+<tr class="row-odd"><td><p>threads</p></td>
+<td><p>Python “threading” module</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>Dynamics propagated by external
+executables, large amounts of
+data transferred per segment</p></td>
+</tr>
+<tr class="row-even"><td><p>processes</p></td>
+<td><p>Python “multiprocessing” module</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>Dynamics propagated by Python
+routines, modest amounts of
+data transferred per segment</p></td>
+</tr>
+<tr class="row-odd"><td><p>mpi</p></td>
+<td><p><a class="reference external" href="http://mpi4py.scipy.org/">mpi4py</a>
+compiled and linked against system MPI</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Distributing calculations
+across multiple nodes. Start
+with this on your cluster of
+choice.</p></td>
+</tr>
+<tr class="row-even"><td><p>zmq</p></td>
+<td><p><a class="reference external" href="http://www.zeromq.org/">ZeroMQ</a>
+and <a class="reference external" href="http://zeromq.github.com/pyzmq/">PyZMQ</a></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Distributing calculations
+across multiple nodes. Use this
+if MPI does not work properly
+on your cluster (particularly
+for spawning child processes).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="environment-variables">
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for-controlling-task-distribution">
+<h3>For controlling task distribution<a class="headerlink" href="#for-controlling-task-distribution" title="Permalink to this headline">¶</a></h3>
+<p>While the original WEMD work managers were controlled by command-line options
+and entries in wemd.cfg, the new work manager is controlled using command-line
+options or environment variables (much like OpenMP). These variables are as
+follow:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 14%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Applicable to</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WM_WORK_MANAGER</p></td>
+<td><p>(none)</p></td>
+<td><p>processes</p></td>
+<td><p>Use the given task distribution
+system: “serial”, “threads”,
+“processes”, or “zmq”</p></td>
+</tr>
+<tr class="row-odd"><td><p>WM_N_WORKERS</p></td>
+<td><p>threads, processes, zmq</p></td>
+<td><p>number of cores in machine</p></td>
+<td><p>Use this number of workers. In
+the case of zmq, use this many
+workers on the current machine
+only (can be set independently
+on different nodes).</p></td>
+</tr>
+<tr class="row-even"><td><p>WM_ZMQ_MODE</p></td>
+<td><p>zmq</p></td>
+<td><p>server</p></td>
+<td><p>Start as a server (“server”) or
+a client (“client”). Servers
+coordinate a given calculation,
+and clients execute tasks
+related to that calculation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>WM_ZMQ_TASK_TIMEOUT</p></td>
+<td><p>zmq</p></td>
+<td><p>60</p></td>
+<td><p>Time (in seconds) after which a
+worker will be considered hung,
+terminated, and restarted. This
+<strong>must</strong> be updated for
+long-running dynamics segments.
+Set to zero to disable hang
+checks entirely.</p></td>
+</tr>
+<tr class="row-even"><td><p>WM_ZMQ_TASK_ENDPOINT</p></td>
+<td><p>zmq</p></td>
+<td><p>Random port</p></td>
+<td><p>Master distributes tasks at
+this address</p></td>
+</tr>
+<tr class="row-odd"><td><p>WM_ZMQ_RESULT_ENDPOINT</p></td>
+<td><p>zmq</p></td>
+<td><p>Random port</p></td>
+<td><p>Master receives task results at
+this address                                                                                                                                                           |</p></td>
+</tr>
+<tr class="row-even"><td><p>WM_ZMQ_ANNOUNCE_ENDPOINT</p></td>
+<td><p>zmq</p></td>
+<td><p>Random port</p></td>
+<td><p>Master publishes announcements
+(such as “shut down now”) at
+this address</p></td>
+</tr>
+<tr class="row-odd"><td><p>WM_ZMQ_SERVER_INFO</p></td>
+<td><p>zmq</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">zmq_server_info_PID_ID.json</span></code>
+(where PID is a process ID and
+ID is a nearly random hex number)</p></td>
+<td><p>A file describing the above
+endpoints can be found here (to
+ease cluster-wide startup)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="for-passing-information-to-workers">
+<h3>For passing information to workers<a class="headerlink" href="#for-passing-information-to-workers" title="Permalink to this headline">¶</a></h3>
+<p>One environment variable is made available by multi-process work managers
+(processes and ZMQ) to help clients configure themselves (e.g. select an
+appropriate GPU on a multi-GPU node):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Applicable to</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WM_PROCESS_ID</p></td>
+<td><p>processes, zmq</p></td>
+<td><p>Contains an integer, 0 based, identifying the
+process among the set of processes started on a
+given node.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="the-zeromq-work-manager-for-clusters">
+<h2>The ZeroMQ work manager for clusters<a class="headerlink" href="#the-zeromq-work-manager-for-clusters" title="Permalink to this headline">¶</a></h2>
+<p>The ZeroMQ (“zmq”) work manager can be used for both single-machine and
+cluster-wide communication. Communication occurs over sockets using the <a class="reference external" href="http://www.zeromq.org/">ZeroMQ</a> messaging protocol. Within nodes, <a class="reference external" href="http://en.wikipedia.org/wiki/UNIX_socket">Unix sockets</a> are used for efficient
+communication, while between nodes, TCP sockets are used. This also minimizes
+the number of open sockets on the master node.</p>
+<p>The quick and dirty guide to using this on a cluster is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>source env.sh
+export WM_WORK_MANAGER=zmq
+export WM_ZMQ_COMM_MODE=tcp
+export WM_ZMQ_SERVER_INFO=$WEST_SIM_ROOT/wemd_server_info.json
+
+w_run &amp;
+
+# manually run w_run on each client node, as appropriate for your batch system
+# e.g. qrsh -inherit for Grid Engine, or maybe just simple SSH
+
+for host in $(cat $TMPDIR/machines | sort | uniq); do
+   qrsh -inherit -V $host $PWD/node-ltc1.sh &amp;
+done
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="westext.html" class="btn btn-neutral float-right" title="WEST Extensions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="west_tools.html" class="btn btn-neutral float-left" title="WEST Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

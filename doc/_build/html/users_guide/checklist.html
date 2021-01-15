@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Checklist &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="westext.html"> WEST extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_tools.html"> Command line tool index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Checklist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/users_guide/checklist.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="checklist">
+<h1>Checklist<a class="headerlink" href="#checklist" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuring-a-westpa-simulation">
+<h2>Configuring a WESTPA Simulation<a class="headerlink" href="#configuring-a-westpa-simulation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Files for dynamics propagation</p>
+<ul class="simple">
+<li><p>Have you set up all of the files for propagating the dynamics (e.g. for
+GROMACS, the .top, .gro, .mdp, and .ndx files)?</p></li>
+</ul>
+</li>
+<li><p>System implementation (<code class="docutils literal notranslate"><span class="pre">system.py</span></code>)</p>
+<ul class="simple">
+<li><p>Is <code class="docutils literal notranslate"><span class="pre">self.pcoord_len</span></code> set to the number of data points that
+corresponds to the frequency with which the dynamics engine outputs the
+progress coordinate? Note: Many MD engines (e.g. GROMACS) output the
+initial point (i.e. zero).</p></li>
+<li><p>Are the bins in the expected positions? You can easily view the positions
+of the bins using a Python interpreter.</p></li>
+</ul>
+</li>
+<li><p>Initializing the simulation (<code class="docutils literal notranslate"><span class="pre">init.sh</span></code>)</p>
+<ul class="simple">
+<li><p>Is the directory structure for the trajectory output files
+consistent with specifications in the master configuration file
+(<code class="docutils literal notranslate"><span class="pre">west.cfg</span></code>)?</p></li>
+<li><p>Are the basis (bstate) states, and if applicable, target states (tstate),
+specified correctly?</p></li>
+</ul>
+</li>
+<li><p>Calculating the progress coordinate for initial states (<code class="docutils literal notranslate"><span class="pre">get_pcoord.sh</span></code>)</p>
+<ul class="simple">
+<li><p>Ensure that the procedure to extract the progress coordinate works by
+manually checking the procedure on one (or more) basis state files.</p></li>
+<li><p>If your initialization (<code class="docutils literal notranslate"><span class="pre">init.sh</span></code>) gives an error message indicating the
+“incorrect shape” of the progress coordinate, check that get_pcoord.sh is
+not writing to a single file. If this is the case, w_init will crash since
+multiple threads will be simultaneously writing to a single file. To fix
+this issue, you can add $$ to the file name (e.g. change <code class="docutils literal notranslate"><span class="pre">OUT=dist.xvg</span></code>
+to <code class="docutils literal notranslate"><span class="pre">OUT=dist_$$.xvg</span></code>) in <code class="docutils literal notranslate"><span class="pre">get_pcoord.sh</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Segment implementation (<code class="docutils literal notranslate"><span class="pre">runseg.sh</span></code>)</p>
+<ul class="simple">
+<li><p>Ensure that the progress coordinate is being calculated correctly.
+If necessary, manually run a single dynamics segment (τ) for a single
+trajectory walker to do so (e.g. for GROMACS, run the .tpr file for a
+length of τ). Double check that if any analysis programs are being run
+that their input is correct.</p></li>
+<li><p>Are you feeding the velocities and state information required for the
+thermostat and barostat from one dynamics segment to the next? In GROMACS,
+this information is stored in the .edr and .trr files.</p></li>
+</ul>
+</li>
+<li><p>Log of simulation progress (<code class="docutils literal notranslate"><span class="pre">west.h5</span></code>)</p>
+<ul>
+<li><p>Check that the first iteration has been initialized, i.e. typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h5ls</span> <span class="n">west</span><span class="o">.</span><span class="n">h5</span><span class="o">/</span><span class="n">iterations</span>
+</pre></div>
+</div>
+<p>at the command line gives:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iter_00000001</span>            <span class="n">Group</span>
+</pre></div>
+</div>
+</li>
+<li><p>In addition, the progress coordinate should be initialized as well, i.e.
+using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h5ls</span> <span class="o">-</span><span class="n">d</span> <span class="n">west</span><span class="o">.</span><span class="n">h5</span><span class="o">/</span><span class="n">iterations</span><span class="o">/</span><span class="n">iter_00000001</span><span class="o">/</span><span class="n">pcoord</span>
+</pre></div>
+</div>
+<p>shows that the array is populated by zeros and the first point is the value
+calculated by get_pcoord.sh:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcoord</span>                   <span class="n">Dataset</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+   <span class="n">Data</span><span class="p">:</span>
+       <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="running-a-westpa-simulation">
+<h2>Running a WESTPA simulation<a class="headerlink" href="#running-a-westpa-simulation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If you encounter an issue while running the simulation</p>
+<ul>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> option on the servers w_run and save the output to a file.
+(note that this will generate a very detailed log of the process, try
+searching for “ERROR” for any errors and “iteration” to look at every
+iteration)</p></li>
+<li><p>Use a program like hdfview, h5ls or Python with h5py library to open the
+<code class="docutils literal notranslate"><span class="pre">west.h5</span></code> file and ensure that the progress coordinate is being passed
+around correctly.</p></li>
+<li><p>Use hdfview, h5ls or Python with h5py library to ensure that the number of
+trajectory walkers is correct.</p></li>
+</ul>
+</li>
+<li><p>Is your simulation failing while the progress coordinate is being calculated?</p>
+<ul>
+<li><p>One of the most error prone part during an iteration is the progress
+coordinate extraction. Programs that are not designed for quick execution
+have a lot of trouble during this step (VMD is a very commonly encountered
+one for example). Probably the best way to deal with this issue is to hard
+code a script to do the progress coordinate extraction. If you are doing
+molecular dynamics simulations multiple libraries for Python and C/C++ that
+deal with most output formats for MD packages exist and they usually come
+with a lot of convenience functions that can help you extract the progress
+coordinate. AMBER tools and GROMACS tools seems to work adequately for this
+purpose as well.</p></li>
+</ul>
+</li>
+<li><p>Is your progress coordinate what you think it is?</p>
+<ul>
+<li><p>Once your simulation it is running, it is well worth your time to ensure
+that the progress coordinate being reported is what you think it is. This
+can be done in a number of ways:</p></li>
+<li><p>Check the <code class="docutils literal notranslate"><span class="pre">seg_log</span></code> output. This captures the standard error/output from
+the terminal session that your segment ran in, assuming you are running the
+executable propagator, and can be useful to ensure that everything is being
+done as you believe it should be (GROMACS tools, such as <code class="docutils literal notranslate"><span class="pre">g_dist</span></code>, for
+instance, report what groups have their distance being calculated here).</p></li>
+<li><p>Look at a structure! Do so in a program such as VMD or pyMOL, and calculate
+your progress coordinate manually and check it visually, if feasible. Does
+it look correct, and seem to match what’s being reported in the .h5 file?
+This is well worth your time before the simulation has proceeded very far,
+and can save a significant amount of wallclock and computational time.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="analyzing-a-westpa-simulation">
+<h2>Analyzing a WESTPA simulation<a class="headerlink" href="#analyzing-a-westpa-simulation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If you are running the analysis on shared computing resources</p>
+<ul>
+<li><p>Be sure to use the <code class="docutils literal notranslate"><span class="pre">--serial</span></code> flag (see the individual tool
+documentation). Otherwise, many of the included tools default to parallel
+mode (w_assign, for instance), which will create as many Python threads as
+there are CPU cores available.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

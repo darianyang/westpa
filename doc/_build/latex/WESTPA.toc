@@ -1,0 +1,179 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Overview}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Obtaining and Installing WESTPA}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Getting started}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Getting help}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}FAQ}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Copyright, license, and warranty information}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}For WESTPA}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}For included software}{9}{section.5.2}
+\contentsline {chapter}{\numberline {6}Advanced References}{11}{chapter.6}
+\contentsline {section}{\numberline {6.1}WEST}{11}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Setup}{11}{subsection.6.1.1}
+\contentsline {subsubsection}{Defining and Calculating Progress Coordinates}{11}{subsubsection*.3}
+\contentsline {subsubsection}{Binning}{11}{subsubsection*.4}
+\contentsline {paragraph}{RectilinearBinMapper}{11}{paragraph*.5}
+\contentsline {paragraph}{VoronoiBinMapper}{12}{paragraph*.6}
+\contentsline {paragraph}{FuncBinMapper}{12}{paragraph*.7}
+\contentsline {paragraph}{VectorizingFuncBinMapper}{13}{paragraph*.8}
+\contentsline {paragraph}{PiecewiseBinMapper}{14}{paragraph*.9}
+\contentsline {paragraph}{RecursiveBinMapper}{14}{paragraph*.10}
+\contentsline {subsubsection}{Initial/Basis States}{15}{subsubsection*.11}
+\contentsline {subsubsection}{Target States}{15}{subsubsection*.12}
+\contentsline {subsubsection}{Propagators}{16}{subsubsection*.13}
+\contentsline {paragraph}{The Executable Propagator}{16}{paragraph*.14}
+\contentsline {paragraph}{Writing custom propagators}{16}{paragraph*.15}
+\contentsline {subsubsection}{Configuration File}{17}{subsubsection*.16}
+\contentsline {subsubsection}{Environmental Variables}{19}{subsubsection*.17}
+\contentsline {paragraph}{Programs executed for an iteration}{19}{paragraph*.18}
+\contentsline {paragraph}{Programs executed for a segment}{19}{paragraph*.19}
+\contentsline {paragraph}{Programs executed for a single point}{20}{paragraph*.20}
+\contentsline {subsubsection}{Plugins}{21}{subsubsection*.21}
+\contentsline {subsubsection}{Weighted Ensemble Algorithm (Resampling)}{21}{subsubsection*.22}
+\contentsline {subsection}{\numberline {6.1.2}Running}{21}{subsection.6.1.2}
+\contentsline {subsubsection}{Overview}{21}{subsubsection*.23}
+\contentsline {subsubsection}{Setting simulation limits}{21}{subsubsection*.24}
+\contentsline {subsubsection}{Running a simulation}{21}{subsubsection*.25}
+\contentsline {paragraph}{Running on a single node}{21}{paragraph*.26}
+\contentsline {paragraph}{Running on multiple nodes with MPI}{21}{paragraph*.27}
+\contentsline {paragraph}{Running on multiple nodes with ZeroMQ}{21}{paragraph*.28}
+\contentsline {subsubsection}{Managing data}{21}{subsubsection*.29}
+\contentsline {subsubsection}{Recovering from errors}{21}{subsubsection*.30}
+\contentsline {subsection}{\numberline {6.1.3}Analysis}{22}{subsection.6.1.3}
+\contentsline {subsubsection}{Gauging simulation progress and convergence}{22}{subsubsection*.31}
+\contentsline {paragraph}{Progress coordinate distribution (w\_pcpdist)}{22}{paragraph*.32}
+\contentsline {paragraph}{Kinetics for source/sink simulations}{22}{paragraph*.33}
+\contentsline {paragraph}{Kinetics for arbitrary state definitions}{22}{paragraph*.34}
+\contentsline {section}{\numberline {6.2}WEST Tools}{24}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Overview}{24}{subsection.6.2.1}
+\contentsline {subsubsection}{Tools for setting up and running a simulation}{24}{subsubsection*.35}
+\contentsline {subsubsection}{Tools for analyzing simulation results}{24}{subsubsection*.36}
+\contentsline {subsection}{\numberline {6.2.2}General Command Line Options}{25}{subsection.6.2.2}
+\contentsline {subsubsection}{A note on specifying a configuration file}{25}{subsubsection*.37}
+\contentsline {subsection}{\numberline {6.2.3}Work Manager Options}{25}{subsection.6.2.3}
+\contentsline {subsubsection}{Overview}{26}{subsubsection*.38}
+\contentsline {subsubsection}{General work manager options}{26}{subsubsection*.39}
+\contentsline {subsubsection}{ZeroMQ (\IeC {\textquoteleft }zmq\IeC {\textquoteright }) work manager}{26}{subsubsection*.40}
+\contentsline {subsection}{\numberline {6.2.4}Initializing/Running Simulations}{27}{subsection.6.2.4}
+\contentsline {section}{\numberline {6.3}WEST Work Manager}{27}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Introduction}{27}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Environment variables}{28}{subsection.6.3.2}
+\contentsline {subsubsection}{For controlling task distribution}{28}{subsubsection*.41}
+\contentsline {subsubsection}{For passing information to workers}{28}{subsubsection*.42}
+\contentsline {subsection}{\numberline {6.3.3}The ZeroMQ work manager for clusters}{29}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}WEST Extensions}{29}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Post\sphinxhyphen {}Analysis Reweighting}{29}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}String Method}{29}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Weighted Ensemble Equilibrium Dynamics}{29}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Weighted Ensemble Steady State}{29}{subsection.6.4.4}
+\contentsline {section}{\numberline {6.5}Command Line Tool Index}{29}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}w\_assign}{29}{subsection.6.5.1}
+\contentsline {subsubsection}{Overview}{30}{subsubsection*.43}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{30}{subsubsection*.44}
+\contentsline {subsubsection}{Input/output Options}{30}{subsubsection*.45}
+\contentsline {subsubsection}{Binning Options}{30}{subsubsection*.46}
+\contentsline {subsubsection}{Macrostate Options}{31}{subsubsection*.47}
+\contentsline {subsubsection}{Specifying Progress Coordinate}{31}{subsubsection*.48}
+\contentsline {subsubsection}{Examples}{32}{subsubsection*.49}
+\contentsline {subsection}{\numberline {6.5.2}w\_bins}{32}{subsection.6.5.2}
+\contentsline {subsubsection}{Overview}{32}{subsubsection*.50}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{32}{subsubsection*.51}
+\contentsline {paragraph}{Options Under \IeC {\textquoteleft }info\IeC {\textquoteright }}{32}{paragraph*.52}
+\contentsline {paragraph}{Options Under \IeC {\textquoteleft }rebin\IeC {\textquoteright }}{33}{paragraph*.53}
+\contentsline {subsubsection}{Input Options}{34}{subsubsection*.54}
+\contentsline {subsubsection}{Examples}{34}{subsubsection*.55}
+\contentsline {subsection}{\numberline {6.5.3}w\_crawl}{34}{subsection.6.5.3}
+\contentsline {subsection}{\numberline {6.5.4}w\_eddist}{34}{subsection.6.5.4}
+\contentsline {subsection}{\numberline {6.5.5}w\_fluxanl}{34}{subsection.6.5.5}
+\contentsline {subsubsection}{Overview}{34}{subsubsection*.56}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{35}{subsubsection*.57}
+\contentsline {paragraph}{Input/output options}{35}{paragraph*.58}
+\contentsline {paragraph}{Iteration range options}{35}{paragraph*.59}
+\contentsline {paragraph}{Confidence interval and bootstrapping options}{35}{paragraph*.60}
+\contentsline {subsubsection}{Examples}{36}{subsubsection*.61}
+\contentsline {subsection}{\numberline {6.5.6}w\_fork}{36}{subsection.6.5.6}
+\contentsline {subsection}{\numberline {6.5.7}w\_init}{36}{subsection.6.5.7}
+\contentsline {subsubsection}{Overview}{36}{subsubsection*.62}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{37}{subsubsection*.63}
+\contentsline {paragraph}{State Options}{37}{paragraph*.64}
+\contentsline {subsubsection}{Examples}{37}{subsubsection*.65}
+\contentsline {subsection}{\numberline {6.5.8}w\_kinavg}{37}{subsection.6.5.8}
+\contentsline {subsection}{\numberline {6.5.9}w\_kinetics}{37}{subsection.6.5.9}
+\contentsline {subsection}{\numberline {6.5.10}w\_ntop}{37}{subsection.6.5.10}
+\contentsline {subsection}{\numberline {6.5.11}w\_pdist}{37}{subsection.6.5.11}
+\contentsline {subsubsection}{Overview}{38}{subsubsection*.66}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{38}{subsubsection*.67}
+\contentsline {paragraph}{Input/output options}{38}{paragraph*.68}
+\contentsline {paragraph}{Iteration range options}{38}{paragraph*.69}
+\contentsline {paragraph}{Probability distribution binning options}{39}{paragraph*.70}
+\contentsline {subsubsection}{Examples}{39}{subsubsection*.71}
+\contentsline {subsection}{\numberline {6.5.12}w\_run}{39}{subsection.6.5.12}
+\contentsline {subsubsection}{Overview}{40}{subsubsection*.72}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{40}{subsubsection*.73}
+\contentsline {paragraph}{Segment Options}{40}{paragraph*.74}
+\contentsline {subsubsection}{Example}{40}{subsubsection*.75}
+\contentsline {subsection}{\numberline {6.5.13}w\_select}{40}{subsection.6.5.13}
+\contentsline {subsection}{\numberline {6.5.14}w\_stateprobs}{40}{subsection.6.5.14}
+\contentsline {subsection}{\numberline {6.5.15}w\_states}{40}{subsection.6.5.15}
+\contentsline {subsection}{\numberline {6.5.16}w\_succ}{40}{subsection.6.5.16}
+\contentsline {subsection}{\numberline {6.5.17}w\_trace}{40}{subsection.6.5.17}
+\contentsline {subsection}{\numberline {6.5.18}w\_truncate}{40}{subsection.6.5.18}
+\contentsline {subsubsection}{Overview}{41}{subsubsection*.76}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{41}{subsubsection*.77}
+\contentsline {paragraph}{Iteration Options}{41}{paragraph*.78}
+\contentsline {subsubsection}{Examples}{41}{subsubsection*.79}
+\contentsline {subsection}{\numberline {6.5.19}ploterr}{41}{subsection.6.5.19}
+\contentsline {subsection}{\numberline {6.5.20}plothist}{41}{subsection.6.5.20}
+\contentsline {subsubsection}{Overview}{41}{subsubsection*.80}
+\contentsline {paragraph}{\IeC {\textquoteleft }\sphinxstyleliteralintitle {\sphinxupquote {instant}}\IeC {\textquoteleft } mode}{42}{paragraph*.81}
+\contentsline {paragraph}{\IeC {\textquoteleft }\sphinxstyleliteralintitle {\sphinxupquote {average}}\IeC {\textquoteleft } mode}{42}{paragraph*.82}
+\contentsline {paragraph}{\IeC {\textquoteleft }\sphinxstyleliteralintitle {\sphinxupquote {evolution}}\IeC {\textquoteleft } mode}{42}{paragraph*.83}
+\contentsline {subsubsection}{Command\sphinxhyphen {}Line Options}{43}{subsubsection*.84}
+\contentsline {paragraph}{Input/output options}{43}{paragraph*.85}
+\contentsline {subparagraph}{Specifying input file}{43}{subparagraph*.86}
+\contentsline {subparagraph}{Output plot pdf file}{43}{subparagraph*.87}
+\contentsline {subparagraph}{Additional output options}{43}{subparagraph*.88}
+\contentsline {paragraph}{Plotting options}{43}{paragraph*.89}
+\contentsline {subparagraph}{Mutually exclusive plotting options}{44}{subparagraph*.90}
+\contentsline {paragraph}{Iteration selection options}{44}{paragraph*.91}
+\contentsline {paragraph}{Specifying progress coordinate dimension}{44}{paragraph*.92}
+\contentsline {subsubsection}{Examples}{44}{subsubsection*.93}
+\contentsline {paragraph}{Basic plotting}{45}{paragraph*.94}
+\contentsline {paragraph}{Specifying progress coordinate}{45}{paragraph*.95}
+\contentsline {section}{\numberline {6.6}HDF5 File Schema}{45}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Overall structure}{45}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}The root group (/)}{46}{subsection.6.6.2}
+\contentsline {subsubsection}{The iteration summary table (/summary)}{46}{subsubsection*.96}
+\contentsline {subsection}{\numberline {6.6.3}Per iteration data (/iterations/iter\_XXXXXXXX)}{47}{subsection.6.6.3}
+\contentsline {subsubsection}{The segment summary table (/iterations/iter\_XXXXXXXX/seg\_index)}{47}{subsubsection*.97}
+\contentsline {subsection}{\numberline {6.6.4}Bin Topologies group (/bin\_topologies)}{47}{subsection.6.6.4}
+\contentsline {chapter}{\numberline {7}For Developers}{49}{chapter.7}
+\contentsline {section}{\numberline {7.1}Overview}{49}{section.7.1}
+\contentsline {section}{\numberline {7.2}Style Guide}{49}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Preface}{49}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Style and Usage}{49}{subsection.7.2.2}
+\contentsline {subsubsection}{Acronyms and abbreviations}{49}{subsubsection*.98}
+\contentsline {subsubsection}{Capitalization}{50}{subsubsection*.99}
+\contentsline {subsubsection}{Contractions}{50}{subsubsection*.100}
+\contentsline {subsubsection}{Internationalization}{51}{subsubsection*.101}
+\contentsline {subsubsection}{Italics}{51}{subsubsection*.102}
+\contentsline {subsubsection}{Non\sphinxhyphen {}English words}{51}{subsubsection*.103}
+\contentsline {subsubsection}{Specially formatted characters}{51}{subsubsection*.104}
+\contentsline {subsubsection}{Subject}{51}{subsubsection*.105}
+\contentsline {subsubsection}{Tense}{52}{subsubsection*.106}
+\contentsline {subsubsection}{Voice}{52}{subsubsection*.107}
+\contentsline {subsubsection}{Weighted ensemble}{52}{subsubsection*.108}
+\contentsline {subsubsection}{WESTPA}{52}{subsubsection*.109}
+\contentsline {subsection}{\numberline {7.2.3}Computer Language Elements}{52}{subsection.7.2.3}
+\contentsline {subsubsection}{Classes, modules, and libraries}{52}{subsubsection*.110}
+\contentsline {subsubsection}{Methods and commands}{53}{subsubsection*.111}
+\contentsline {subsubsection}{Programming languages}{53}{subsubsection*.112}
+\contentsline {subsubsection}{Scripts}{53}{subsubsection*.113}
+\contentsline {subsubsection}{Variables}{54}{subsubsection*.114}
+\contentsline {section}{\numberline {7.3}Source Code Management}{54}{section.7.3}
+\contentsline {section}{\numberline {7.4}Documentation Practices}{54}{section.7.4}
+\contentsline {section}{\numberline {7.5}WESTPA Modules API}{55}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Binning}{55}{subsection.7.5.1}
+\contentsline {subsection}{\numberline {7.5.2}YAMLCFG}{55}{subsection.7.5.2}
+\contentsline {subsection}{\numberline {7.5.3}RC}{55}{subsection.7.5.3}
+\contentsline {section}{\numberline {7.6}WESTPA Tools}{55}{section.7.6}

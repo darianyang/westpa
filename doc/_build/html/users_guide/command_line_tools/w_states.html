@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>w_states &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="w_succ" href="w_succ.html" />
+    <link rel="prev" title="w_stateprobs" href="w_stateprobs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../westext.html"> WEST extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command_line_tools.html"> Command line tool index</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="w_assign.html"> w_assign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_bins.html"> w_bins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_crawl.html"> w_crawl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_eddist.html"> w_eddist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fluxanl.html"> w_fluxanl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fork.html"> w_fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_init.html"> w_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinavg.html"> w_kinavg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinetics.html"> w_kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_ntop.html"> w_ntop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_pdist.html"> w_pdist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_run.html"> w_run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_select.html"> w_select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_stateprobs.html"> w_stateprobs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"> w_states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_succ.html"> w_succ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_trace.html"> w_trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_truncate.html"> w_truncate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ploterr.html"> ploterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plothist.html"> plothist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../command_line_tools.html">Command Line Tool Index</a> &raquo;</li>
+        
+      <li>w_states</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/users_guide/command_line_tools/w_states.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="w-states">
+<span id="id1"></span><h1>w_states<a class="headerlink" href="#w-states" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="w_succ.html" class="btn btn-neutral float-right" title="w_succ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="w_stateprobs.html" class="btn btn-neutral float-left" title="w_stateprobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

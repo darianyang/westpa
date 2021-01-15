@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>plothist &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HDF5 File Schema" href="../hdf5.html" />
+    <link rel="prev" title="ploterr" href="ploterr.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../westext.html"> WEST extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command_line_tools.html"> Command line tool index</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="w_assign.html"> w_assign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_bins.html"> w_bins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_crawl.html"> w_crawl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_eddist.html"> w_eddist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fluxanl.html"> w_fluxanl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_fork.html"> w_fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_init.html"> w_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinavg.html"> w_kinavg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_kinetics.html"> w_kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_ntop.html"> w_ntop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_pdist.html"> w_pdist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_run.html"> w_run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_select.html"> w_select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_stateprobs.html"> w_stateprobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_states.html"> w_states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_succ.html"> w_succ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_trace.html"> w_trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="w_truncate.html"> w_truncate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ploterr.html"> ploterr</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"> plothist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#instant-mode">‘<code class="docutils literal notranslate"><span class="pre">instant</span></code>‘ mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#average-mode">‘<code class="docutils literal notranslate"><span class="pre">average</span></code>‘ mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#evolution-mode">‘<code class="docutils literal notranslate"><span class="pre">evolution</span></code>‘ mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-options">Command-Line Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input-output-options">Input/output options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plotting-options">Plotting options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iteration-selection-options">Iteration selection options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifying-progress-coordinate-dimension">Specifying progress coordinate dimension</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-plotting">Basic plotting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifying-progress-coordinate">Specifying progress coordinate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hdf5.html"> HDF5 file schema</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../command_line_tools.html">Command Line Tool Index</a> &raquo;</li>
+        
+      <li>plothist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/users_guide/command_line_tools/plothist.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plothist">
+<span id="id1"></span><h1>plothist<a class="headerlink" href="#plothist" title="Permalink to this headline">¶</a></h1>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">plothist</span></code> tool to plot the results of <a class="reference internal" href="w_pdist.html#w-pdist"><span class="std std-ref">w_pdist</span></a>. This tool uses
+an <em>hdf5</em> file as its input (i.e. the output of another analysis tool), and
+outputs a <em>pdf</em> image.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">plothist</span></code> tool operates in one of three (mutually exclusive)
+plotting modes:</p>
+<ul class="simple">
+<li><p><strong>``evolution``</strong>: Plots the relevant data as a time evolution over
+specified number of simulation iterations</p></li>
+<li><p><strong>``average``</strong>: Plots the relevant data as a time average over a
+specified number of iterations</p></li>
+<li><p><strong>``instant``</strong>: Plots the relevant data for a single specified
+iteration</p></li>
+</ul>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The basic usage, independent of plotting mode, is as follows:</p>
+<p>usage:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist [-h] [-r RCFILE] [--quiet | --verbose | --debug] [--version]</span></code></div>
+<div class="line">``                        {instant,average,evolution} input …``</div>
+</div>
+<p>Note that the user must specify a plotting mode (i.e. ‘<code class="docutils literal notranslate"><span class="pre">instant</span></code>‘,
+‘<code class="docutils literal notranslate"><span class="pre">average</span></code>‘, or ‘<code class="docutils literal notranslate"><span class="pre">evolution</span></code>‘) and an input file, <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p>
+<p>Therefore, this tool is always called as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist mode input_file [</span></code><em>``other``
+``options``</em><code class="docutils literal notranslate"><span class="pre">]</span></code></p>
+<div class="section" id="instant-mode">
+<h3>‘<code class="docutils literal notranslate"><span class="pre">instant</span></code>‘ mode<a class="headerlink" href="#instant-mode" title="Permalink to this headline">¶</a></h3>
+<p>usage:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist instant [-h] input [-o PLOT_OUTPUT]</span></code></div>
+<div class="line">``                                [–hdf5-output HDF5_OUTPUT] [–text-output TEXT_OUTPUT]``</div>
+<div class="line">``                                [–title TITLE] [–range RANGE] [–linear | –energy | –log10]``</div>
+<div class="line">``                                [–iter N_ITER] ``</div>
+<div class="line">``                                [DIMENSION] [ADDTLDIM]``</div>
+</div>
+</div>
+<div class="section" id="average-mode">
+<h3>‘<code class="docutils literal notranslate"><span class="pre">average</span></code>‘ mode<a class="headerlink" href="#average-mode" title="Permalink to this headline">¶</a></h3>
+<p>usage:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist average [-h] input [-o PLOT_OUTPUT]</span></code></div>
+<div class="line">``                                [–hdf5-output HDF5_OUTPUT] [–text-output TEXT_OUTPUT]``</div>
+<div class="line">``                                [–title TITLE] [–range RANGE] [–linear | –energy | –log10]``</div>
+<div class="line">``                                [–first-iter N_ITER] [–last-iter N_ITER]                           ``</div>
+<div class="line">``                                [DIMENSION] [ADDTLDIM]``</div>
+</div>
+</div>
+<div class="section" id="evolution-mode">
+<h3>‘<code class="docutils literal notranslate"><span class="pre">evolution</span></code>‘ mode<a class="headerlink" href="#evolution-mode" title="Permalink to this headline">¶</a></h3>
+<p>usage:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist evolution [-h] input [-o PLOT_OUTPUT]</span></code></div>
+<div class="line">``                                  [–hdf5-output HDF5_OUTPUT]``</div>
+<div class="line">``                                  [–title TITLE] [–range RANGE] [–linear | –energy | –log10]``</div>
+<div class="line">``                                  [–first-iter N_ITER] [–last-iter N_ITER]``</div>
+<div class="line">``                                  [–step-iter STEP]                                   ``</div>
+<div class="line">``                                  [DIMENSION]``</div>
+</div>
+</div>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command-Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference internal" href="../command_line_tools.html#command-line-tool-index"><span class="std std-ref">command-line tool index</span></a> for more
+information on the general options.</p>
+<p>Unless specified (as a <strong>Note</strong> in the command-line option description), the
+command-line options below are shared for all three plotting modes</p>
+<div class="section" id="input-output-options">
+<h3>Input/output options<a class="headerlink" href="#input-output-options" title="Permalink to this headline">¶</a></h3>
+<p>No matter the mode, an input <em>hdf5</em> file must be specified. There are
+three possible outputs that are mode or user-specified: A text file, an
+<em>hdf5</em> file, and a pdf image.</p>
+<div class="section" id="specifying-input-file">
+<h4>Specifying input file<a class="headerlink" href="#specifying-input-file" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt><strong>*``input``*</strong></dt><dd><p>Specify the input <em>hdf5</em> file ‘’<code class="docutils literal notranslate"><span class="pre">input</span></code>. This is the output file
+from a previous analysis tool (e.g. ‘pcpdist.h5’)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="output-plot-pdf-file">
+<h4>Output plot pdf file<a class="headerlink" href="#output-plot-pdf-file" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt><strong>``-o ‘’plot_output’’, –plot_output ‘’plot_output’’``</strong></dt><dd><p>Specify the name of the pdf plot image output (<strong>Default:</strong>
+‘hist.pdf’).
+<strong>Note:</strong> You can suppress plotting entirely by specifying an empty string
+as <em>plot_output</em> (i.e. <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">''</span></code> or <code class="docutils literal notranslate"><span class="pre">--plot_output</span> <span class="pre">''</span></code>)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="additional-output-options">
+<h4>Additional output options<a class="headerlink" href="#additional-output-options" title="Permalink to this headline">¶</a></h4>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">plothist</span></code> provides additional, optional arguments to output the
+data points used to construct the plot:</p>
+<dl class="simple">
+<dt><strong>``–hdf5-output ‘’hdf5_output’’``</strong></dt><dd><p>Output plot data <em>hdf5</em> file <code class="docutils literal notranslate"><span class="pre">'hdf5_output'</span></code> (<strong>Default:</strong> No
+<em>hdf5</em> output file)</p>
+</dd>
+<dt><strong>``–text-output ‘’text_output’’``</strong></dt><dd><p>Output plot data as a text file named <code class="docutils literal notranslate"><span class="pre">'text_output'</span></code>
+(<strong>Default:</strong> No text output file)
+<strong>Note:</strong> This option is only available for 1 dimensional histogram
+plots (that is, <code class="docutils literal notranslate"><span class="pre">'average'</span></code> and <code class="docutils literal notranslate"><span class="pre">'instant'</span></code> modes only)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="plotting-options">
+<h3>Plotting options<a class="headerlink" href="#plotting-options" title="Permalink to this headline">¶</a></h3>
+<p>The following options allow the user to specify a plot title, the type
+of plot (i.e. energy or probability distribution), whether to apply a
+log transformation to the data, and the range of data values to include.</p>
+<dl class="simple">
+<dt><strong>``–title ‘’title’’ ``</strong></dt><dd><p>Optionally specify a title, <em>``title``</em>, for the plot (<strong>Default:</strong>
+No title)</p>
+</dd>
+<dt><strong>``–range ‘’&lt;nowiki&gt;’&lt;/nowiki&gt;LB, UB&lt;nowiki&gt;’&lt;/nowiki&gt;’’``</strong></dt><dd><p>Optionally specify the data range to be plotted as “<code class="docutils literal notranslate"><span class="pre">LB,</span> <span class="pre">UB</span></code>”
+(e.g. <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">--range</span> <span class="pre">&quot;-1,</span> <span class="pre">10&quot;</span> <span class="pre">'</span></code> - note that the quotation marks are
+necessary if specifying a negative bound). For 1 dimensional
+histograms, the range affects the y axis. For 2 dimensional plots
+(e.g. evolution plot with 1 dimensional progress coordinate), it
+corresponds to the range of the color bar</p>
+</dd>
+</dl>
+<div class="section" id="mutually-exclusive-plotting-options">
+<h4>Mutually exclusive plotting options<a class="headerlink" href="#mutually-exclusive-plotting-options" title="Permalink to this headline">¶</a></h4>
+<p>The following three options determine how the plotted data is
+represented (<strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'--energy'</span></code>)</p>
+<dl class="simple">
+<dt><strong>``–energy ``</strong></dt><dd><p>Plots the probability distribution on an inverted natural log scale
+(i.e. -ln[P(x)] ), corresponding to the free energy (<strong>Default</strong>)</p>
+</dd>
+<dt><strong>``–linear ``</strong></dt><dd><p>Plots the probability distribution function as a linear scale</p>
+</dd>
+<dt><strong>``–log10 ``</strong></dt><dd><p>Plots the (base-10) logarithm of the probability distribution</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="iteration-selection-options">
+<h3>Iteration selection options<a class="headerlink" href="#iteration-selection-options" title="Permalink to this headline">¶</a></h3>
+<p>Depending on plotting mode, you can select either a range or a single
+iteration to plot.</p>
+<p><strong>``’instant’``</strong> mode only:</p>
+<dl class="simple">
+<dt><strong>``–iter ‘’n_iter’’ ``</strong></dt><dd><p>Plot the distribution for iteration <code class="docutils literal notranslate"><span class="pre">''n_iter''</span></code> (<strong>Default:</strong>
+Last completed iteration)</p>
+</dd>
+</dl>
+<p><strong>``’average’``</strong> and <strong>``’evolution’``</strong> modes only:</p>
+<dl class="simple">
+<dt><strong>``–first-iter ‘’first_iter’’ ``</strong></dt><dd><p>Begin averaging or plotting at iteration <em>``first_iter``</em>
+(<strong>Default:</strong> 1)</p>
+</dd>
+<dt><strong>``–last-iter ‘’last_iter’’ ``</strong></dt><dd><p>Average or plot up to and including <em>``last_iter``</em> (<strong>Default:</strong>
+Last completed iteration)</p>
+</dd>
+</dl>
+<p><strong>``’evolution’``</strong> mode only:</p>
+<dl class="simple">
+<dt><strong>``–iter_step ‘’n_step’’ ``</strong></dt><dd><p>Average every <em>``n_step``</em> iterations together when plotting in
+<code class="docutils literal notranslate"><span class="pre">'evolution'</span></code> mode (<strong>Default:</strong> 1 - i.e. plot each iteration)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="specifying-progress-coordinate-dimension">
+<h3>Specifying progress coordinate dimension<a class="headerlink" href="#specifying-progress-coordinate-dimension" title="Permalink to this headline">¶</a></h3>
+<p>For progress coordinates with dimensions greater than 1, you can specify
+the dimension of the progress coordinate to use, the of progress
+coordinate values to include, and the progress coordinate axis label
+with a single positional argument:</p>
+<dl class="simple">
+<dt><strong>``dimension ``</strong></dt><dd><p>Specify <code class="docutils literal notranslate"><span class="pre">'dimension'</span></code> as ‘<code class="docutils literal notranslate"><span class="pre">int[:[LB,UB]:label]</span></code>‘, where
+‘<code class="docutils literal notranslate"><span class="pre">int</span></code>‘ specifies the dimension (starting at 0), and,
+optionally, ‘<code class="docutils literal notranslate"><span class="pre">LB,UB</span></code>‘ specifies the lower and upper range
+bounds, and/or ‘<code class="docutils literal notranslate"><span class="pre">label</span></code>‘ specifies the axis label (<strong>Default:</strong>
+<code class="docutils literal notranslate"><span class="pre">int</span></code> = 0, full range, default label is ‘dimension <code class="docutils literal notranslate"><span class="pre">int</span></code>’; e.g
+‘dimension 0’)</p>
+</dd>
+</dl>
+<p>For <code class="docutils literal notranslate"><span class="pre">'average'</span></code> and <code class="docutils literal notranslate"><span class="pre">'instant'</span></code> modes, you can plot two dimensions
+at once using a color map if this positional argument is specified:</p>
+<dl class="simple">
+<dt><strong>``addtl_dimension ``</strong></dt><dd><p>Specify the other dimension to include as <code class="docutils literal notranslate"><span class="pre">'addtl_dimension'</span></code></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>These examples assume the input file is created using w_pcpdist and is
+named ‘pcpdist.h5’</p>
+<div class="section" id="basic-plotting">
+<h3>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this headline">¶</a></h3>
+<p>Plot the energy ( -ln(P(x)) ) for the last iteration</p>
+<p><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist instant pcpdist.h5</span></code></p>
+<p>Plot the evolution of the log10 of the probability distribution over all
+iterations</p>
+<p><a href="#id2"><span class="problematic" id="id3">``</span></a>$WEST_ROOT/bin/plothist evolution pcpdist.h5 –log10 ``</p>
+<p>Plot the average linear probability distribution over all iterations</p>
+<p><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist average pcpdist.h5 --linear</span></code></p>
+</div>
+<div class="section" id="specifying-progress-coordinate">
+<h3>Specifying progress coordinate<a class="headerlink" href="#specifying-progress-coordinate" title="Permalink to this headline">¶</a></h3>
+<p>Plot the average probability distribution as the energy, label the
+x-axis ‘pcoord’, over the entire range of the progress coordinate</p>
+<p><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist average pcpdist.h5 0::pcoord</span></code></p>
+<p>Same as above, but only plot the energies for with progress coordinate
+between 0 and 10</p>
+<p><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist average pcpdist.h5 '0:0,10:pcoord'</span></code></p>
+<p>(Note: the quotes are needed if specifying a range that includes a
+negative bound)</p>
+<p>(For a simulation that uses at least 2 progress coordinates) plot the
+probability distribution for the 5th iteration, representing the first
+two progress coordinates as a heatmap</p>
+<p><code class="docutils literal notranslate"><span class="pre">$WEST_ROOT/bin/plothist instant pcpdist.h5 0 1 --iter 5 --linear</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hdf5.html" class="btn btn-neutral float-right" title="HDF5 File Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ploterr.html" class="btn btn-neutral float-left" title="ploterr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

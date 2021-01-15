@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HDF5 File Schema &mdash; WESTPA 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="../development/overview.html" />
+    <link rel="prev" title="plothist" href="command_line_tools/plothist.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: teal" >
+          
+
+          
+            <a href="../sphinx_index.html" class="icon icon-home" alt="Documentation Home"> WESTPA
+          
+
+          
+            
+            <img src="../_static/WESTPA2b.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="west.html"> WEST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="west_tools.html"> WEST tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wwmgr.html"> WEST work manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="westext.html"> WEST extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_tools.html"> Command line tool index</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> HDF5 file schema</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overall-structure">Overall structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-root-group">The root group (/)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-iteration-summary-table-summary">The iteration summary table (/summary)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#per-iteration-data-iterations-iter-xxxxxxxx">Per iteration data (/iterations/iter_XXXXXXXX)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-segment-summary-table-iterations-iter-xxxxxxxx-seg-index">The segment summary table (/iterations/iter_XXXXXXXX/seg_index)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bin-topologies-group-bin-topologies">Bin Topologies group (/bin_topologies)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/overview.html"> Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html"> Code and documentation style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/source_code.html"> Source code management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html"> Building the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/api.html">WESTPA Modules API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/api.html#westpa-tools">WESTPA Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../sphinx_index.html">WESTPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../sphinx_index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>HDF5 File Schema</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/users_guide/hdf5.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hdf5-file-schema">
+<h1>HDF5 File Schema<a class="headerlink" href="#hdf5-file-schema" title="Permalink to this headline">¶</a></h1>
+<p>WESTPA stores all of its simulation data in the cross-platform, self-describing
+<a class="reference external" href="http://www.hdfgroup.org/HDF5">HDF5</a> file format. This file format can be
+read and written by a variety of languages and toolkits, including C/C++,
+Fortran, Python, Java, and <a class="reference external" href="http://www.mathworks.com/help/matlab/ref/hdf5read.html">Matlab</a> so that analysis of
+weighted ensemble simulations is not tied to using the WESTPA framework. HDF5
+files are organized like a filesystem, where arbitrarily-nested groups (i.e.
+directories) are used to organize datasets (i.e. files). The excellent <a class="reference external" href="http://www.hdfgroup.org/hdf-java-html/hdfview/">HDFView</a> program may be used to
+explore WEST data files.</p>
+<p>The canonical file format reference for a given version of the WEST code is
+described in <a class="reference external" href="https://github.com/westpa/westpa/blob/master/src/west/data_manager.py">src/west/data_manager.py</a>.</p>
+<div class="section" id="overall-structure">
+<h2>Overall structure<a class="headerlink" href="#overall-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span>
+    <span class="c1">#ibstates/</span>
+        <span class="n">index</span>
+        <span class="n">naming</span>
+            <span class="n">bstate_index</span>
+            <span class="n">bstate_pcoord</span>
+            <span class="n">istate_index</span>
+            <span class="n">istate_pcoord</span>
+    <span class="c1">#tstates/</span>
+        <span class="n">index</span>
+    <span class="n">bin_topologies</span><span class="o">/</span>
+        <span class="n">index</span>
+        <span class="n">pickles</span>
+    <span class="n">iterations</span><span class="o">/</span>
+        <span class="n">iter_XXXXXXXX</span><span class="o">/</span>\<span class="o">|</span><span class="n">iter_XXXXXXXX</span><span class="o">/</span>
+            <span class="n">auxdata</span><span class="o">/</span>
+            <span class="n">bin_target_counts</span>
+            <span class="n">ibstates</span><span class="o">/</span>
+                <span class="n">bstate_index</span>
+                <span class="n">bstate_pcoord</span>
+                <span class="n">istate_index</span>
+                <span class="n">istate_pcoord</span>
+            <span class="n">pcoord</span>
+            <span class="n">seg_index</span>
+            <span class="n">wtgraph</span>
+        <span class="o">...</span>
+    <span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-root-group">
+<h2>The root group (/)<a class="headerlink" href="#the-root-group" title="Permalink to this headline">¶</a></h2>
+<p>The root of the WEST HDF5 file contains the following entries (where a
+trailing “/” denotes a group):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 30%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ibstates/</p></td>
+<td><p>Group</p></td>
+<td><p>Initial and basis states for this
+simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>tstates/</p></td>
+<td><p>Group</p></td>
+<td><p>Target (recycling) states for this
+simulation; may be empty</p></td>
+</tr>
+<tr class="row-even"><td><p>bin_topologies/</p></td>
+<td><p>Group</p></td>
+<td><p>Data pertaining to the binning scheme
+used in each iteration</p></td>
+</tr>
+<tr class="row-odd"><td><p>iterations/</p></td>
+<td><p>Group</p></td>
+<td><p>Iteration data</p></td>
+</tr>
+<tr class="row-even"><td><p>summary</p></td>
+<td><p>Dataset (1-dimensional,
+compound)</p></td>
+<td><p>Summary data by iteration</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="the-iteration-summary-table-summary">
+<h3>The iteration summary table (/summary)<a class="headerlink" href="#the-iteration-summary-table-summary" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>n_particles</p></td>
+<td><p>the total number of walkers in this iteration</p></td>
+</tr>
+<tr class="row-odd"><td><p>norm</p></td>
+<td><p>total probability, for stability monitoring</p></td>
+</tr>
+<tr class="row-even"><td><p>min_bin_prob</p></td>
+<td><p>smallest probability contained in a bin</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_bin_prob</p></td>
+<td><p>largest probability contained in a bin</p></td>
+</tr>
+<tr class="row-even"><td><p>min_seg_prob</p></td>
+<td><p>smallest probability carried by a walker</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_seg_prob</p></td>
+<td><p>largest probability carried by a walker</p></td>
+</tr>
+<tr class="row-even"><td><p>cputime</p></td>
+<td><p>total CPU time (in seconds) spent on propagation for this
+iteration</p></td>
+</tr>
+<tr class="row-odd"><td><p>walltime</p></td>
+<td><p>total wallclock time (in seconds) spent on this iteration</p></td>
+</tr>
+<tr class="row-even"><td><p>binhash</p></td>
+<td><p>a hex string identifying the binning used in this iteration</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="per-iteration-data-iterations-iter-xxxxxxxx">
+<h2>Per iteration data (/iterations/iter_XXXXXXXX)<a class="headerlink" href="#per-iteration-data-iterations-iter-xxxxxxxx" title="Permalink to this headline">¶</a></h2>
+<p>Data for each iteration is stored in its own group, named according to the
+iteration number and zero-padded out to 8 digits, as in
+<code class="docutils literal notranslate"><span class="pre">/iterations/iter_00000001</span></code> for iteration 1. This is done solely for
+convenience in dealing with the data in external utilities that sort output by
+group name lexicographically. The field width is in fact configurable via the
+<code class="docutils literal notranslate"><span class="pre">iter_prec</span></code> configuration entry under <code class="docutils literal notranslate"><span class="pre">data</span></code> section of the WESTPA
+configuration file.</p>
+<p>The HDF5 group for each iteration contains the following elements:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 30%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>auxdata/</p></td>
+<td><p>Group</p></td>
+<td><p>All user-defined auxiliary data0
+sets</p></td>
+</tr>
+<tr class="row-odd"><td><p>bin_target_counts</p></td>
+<td><p>Dataset (1-dimensional)</p></td>
+<td><p>The per-bin target count for the
+iteration</p></td>
+</tr>
+<tr class="row-even"><td><p>ibstates/</p></td>
+<td><p>Group</p></td>
+<td><p>Initial and basis state data for
+the iteration</p></td>
+</tr>
+<tr class="row-odd"><td><p>pcoord</p></td>
+<td><p>Dataset (3-dimensional)</p></td>
+<td><p>Progress coordinate data for the
+iteration stored as a (num of
+segments, pcoord_len, pcoord_ndim)
+array</p></td>
+</tr>
+<tr class="row-even"><td><p>seg_index</p></td>
+<td><p>Dataset (1-dimensional,
+compound)</p></td>
+<td><p>Summary data for each segment</p></td>
+</tr>
+<tr class="row-odd"><td><p>wtgraph</p></td>
+<td><p>Dataset (1-dimensional)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="the-segment-summary-table-iterations-iter-xxxxxxxx-seg-index">
+<h3>The segment summary table (/iterations/iter_XXXXXXXX/seg_index)<a class="headerlink" href="#the-segment-summary-table-iterations-iter-xxxxxxxx-seg-index" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>weight</p></td>
+<td><p>Segment weight</p></td>
+</tr>
+<tr class="row-odd"><td><p>parent_id</p></td>
+<td><p>Index of parent</p></td>
+</tr>
+<tr class="row-even"><td><p>wtg_n_parents</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>wtg_offset</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>cputime</p></td>
+<td><p>Total cpu time required to run the segment</p></td>
+</tr>
+<tr class="row-odd"><td><p>walltime</p></td>
+<td><p>Total walltime required to run the segment</p></td>
+</tr>
+<tr class="row-even"><td><p>endpoint_type</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="bin-topologies-group-bin-topologies">
+<h2>Bin Topologies group (/bin_topologies)<a class="headerlink" href="#bin-topologies-group-bin-topologies" title="Permalink to this headline">¶</a></h2>
+<p>Bin topologies used during a WE simulation are stored as a unique hash
+identifier and a serialized <code class="docutils literal notranslate"><span class="pre">BinMapper</span></code> object in <a class="reference external" href="http://docs.python.org/2/library/pickle.html">python pickle</a> format. This group contains
+two datasets:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: Compound array containing the bin hash and pickle length</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pickle</span></code>: The pickled <code class="docutils literal notranslate"><span class="pre">BinMapper</span></code> objects for each unique mapper stored
+in a (num unique mappers, max pickled size) array</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development/overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="command_line_tools/plothist.html" class="btn btn-neutral float-left" title="plothist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Matthew C. Zwier and Lillian T. Chong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
