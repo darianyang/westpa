@@ -397,9 +397,13 @@ class WESTRC:
             from .binning.binless_driver import BinlessDriver
 
             we_driver = BinlessDriver()
+        # wevo driver option in west.cfg (west.drivers.we_driver.wevo)
+        elif drivername.lower() == 'wevo':
+            from .binning.wevo_driver import WEVODriver
+            print("\n\tUSING WEVO\n")
+            we_driver = WEVODriver()
         elif drivername.lower() == 'default':
             from .we_driver import WEDriver
-
             we_driver = WEDriver()
         else:
             we_driver = extloader.get_object(drivername)(rc=self)

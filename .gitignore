@@ -8,6 +8,7 @@ src/westpa/trajtree/_trajtree.c
 
 
 .DS_Store
+.vscode
 .project
 .pydevproject
 *~
