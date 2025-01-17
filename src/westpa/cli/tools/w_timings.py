@@ -7,6 +7,7 @@ from westpa.tools import (
     IterRangeSelection,
 )
 
+
 class WTimings(WESTTool):
     """
     Aggregate simulation and wallclock time extraction.
@@ -17,6 +18,7 @@ class WTimings(WESTTool):
         * write a simple test: this should be very straitforward (assert time of test h5 file is as expected)
         * update docs
     """
+
     prog = "w_timings"
     description = "A tool for aggregate simulation and wallclock time extraction."
 
@@ -44,19 +46,19 @@ class WTimings(WESTTool):
         Parameters
         ----------
         we_h5file : h5py.File
-        
+
         Returns
         -------
         int
             Number of successful recycling events.
         """
         events = 0
-        # Get the key to the final iteration. 
+        # Get the key to the final iteration.
         # Need to do -2 instead of -1 because there's an empty-ish final iteration written.
         for iteration_key in tqdm(list(we_h5file['iterations'].keys())[-2:0:-1]):
             endpoint_types = we_h5file[f'iterations/{iteration_key}/seg_index']['endpoint_type']
             if 3 in endpoint_types:
-                #print(f"recycled segment found in file {h5_filename} at iteration {iteration_key}")
+                # print(f"recycled segment found in file {h5_filename} at iteration {iteration_key}")
                 # count the number of 3s
                 events += np.count_nonzero(endpoint_types == 3)
         return events
@@ -67,17 +69,17 @@ class WTimings(WESTTool):
             self.iter_start = self.iter_range.iter_start
             self.iter_stop = self.iter_range.iter_stop
 
-            walltime = we_h5file['summary']['walltime'][self.iter_start-1:self.iter_stop].sum()
-            aggtime = we_h5file['summary']['n_particles'][self.iter_start-1:self.iter_stop].sum()
+            walltime = we_h5file['summary']['walltime'][self.iter_start - 1 : self.iter_stop].sum()
+            aggtime = we_h5file['summary']['n_particles'][self.iter_start - 1 : self.iter_stop].sum()
 
             print("\nwalltime: ", walltime, "seconds")
-            print("walltime: ", walltime/60, "minutes")
-            print("walltime: ", walltime/60/60, "hours")
-            print("walltime: ", walltime/60/60/24, "days")
+            print("walltime: ", walltime / 60, "minutes")
+            print("walltime: ", walltime / 60 / 60, "hours")
+            print("walltime: ", walltime / 60 / 60 / 24, "days")
             print(f"\nassuming tau of {self.tau} ps:")
             print("aggtime: ", aggtime, "segments ran for tau intervals")
-            print("aggtime: ", (aggtime * self.tau)/1000, "ns")
-            print("aggtime: ", (aggtime * self.tau)/1000/1000, "µs\n")
+            print("aggtime: ", (aggtime * self.tau) / 1000, "ns")
+            print("aggtime: ", (aggtime * self.tau) / 1000 / 1000, "µs\n")
             if self.count_events:
                 print("successful recycling events:", self.get_event_count(we_h5file), "\n")
 
@@ -85,18 +87,20 @@ class WTimings(WESTTool):
         self.data_reader.add_args(parser)
         self.iter_range.add_args(parser)
         parser.add_argument(
-        "--tau", "-t",
-        dest="tau",
-        type=int,
-        default=100,
-            help="WESTPA dynamics propagation time in picoseconds. Default 100 = 100ps."
+            "--tau",
+            "-t",
+            dest="tau",
+            type=int,
+            default=100,
+            help="WESTPA dynamics propagation time in picoseconds. Default 100 = 100ps.",
         )
         parser.add_argument(
-            "--count-events", "-ce",
+            "--count-events",
+            "-ce",
             dest="count_events",
             action="store_true",
             default=False,
-            help="Include this flag to also output the number of successfull recycling events."
+            help="Include this flag to also output the number of successfull recycling events.",
         )
 
     def process_args(self, args):
@@ -106,8 +110,10 @@ class WTimings(WESTTool):
         with self.data_reader:
             self.iter_range.process_args(args)
 
+
 def entry_point():
     WTimings().main()
+
 
 if __name__ == "__main__":
     entry_point()
