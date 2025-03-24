@@ -55,7 +55,7 @@ class WTimings(WESTTool):
         events = 0
         # Get the key to the final iteration.
         # Need to do -2 instead of -1 because there's an empty-ish final iteration written.
-        for iteration_key in tqdm(list(we_h5file['iterations'].keys())[-2:0:-1]):
+        for iteration_key in tqdm(list(we_h5file['iterations'].keys())[-2:0:-1], disable=True): 
             endpoint_types = we_h5file[f'iterations/{iteration_key}/seg_index']['endpoint_type']
             if 3 in endpoint_types:
                 # print(f"recycled segment found in file {h5_filename} at iteration {iteration_key}")
@@ -72,16 +72,23 @@ class WTimings(WESTTool):
             walltime = we_h5file['summary']['walltime'][self.iter_start - 1 : self.iter_stop].sum()
             aggtime = we_h5file['summary']['n_particles'][self.iter_start - 1 : self.iter_stop].sum()
 
-            print("\nwalltime: ", walltime, "seconds")
-            print("walltime: ", walltime / 60, "minutes")
-            print("walltime: ", walltime / 60 / 60, "hours")
-            print("walltime: ", walltime / 60 / 60 / 24, "days")
-            print(f"\nassuming tau of {self.tau} ps:")
-            print("aggtime: ", aggtime, "segments ran for tau intervals")
-            print("aggtime: ", (aggtime * self.tau) / 1000, "ns")
-            print("aggtime: ", (aggtime * self.tau) / 1000 / 1000, "µs\n")
+            days = int(walltime) // 86400
+            hours = (int(walltime) % 86400) // 3600
+            minutes = (int(walltime) % 3600) // 60
+            seconds = walltime % 60
+
+            print("\n===== WALLCLOCK  =====")
+            print(f"{'Total Wallclock Time:':30}{days:>2}d {hours:>2}h {minutes:>2}m {seconds:>6.2f}s")
+
+            print("\n===== SIMULATION  =====")
+            print(f"{'Tau:':30} {self.tau} ps")
+            print(f"{'Total Segments:':30} {aggtime}")
+            print(f"{'Simulation time:':30} {((aggtime * self.tau) / 1000):.2f} ns")
+
             if self.count_events:
-                print("successful recycling events:", self.get_event_count(we_h5file), "\n")
+                events = self.get_event_count(we_h5file)
+                print("\n===== RECYCLING =====")
+                print(f"{'Recycled walkers:':30} {events}")
 
     def add_args(self, parser):
         self.data_reader.add_args(parser)
